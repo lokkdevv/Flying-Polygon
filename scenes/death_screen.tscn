@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv63spn0x1w0d"]
+
+[ext_resource type="Script" uid="uid://dd24t62oxe3yd" path="res://scripts/death_screen.gd" id="1_uyutr"]
+[ext_resource type="FontFile" uid="uid://bk04ui5hadanb" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="2_dwo6e"]
+[ext_resource type="FontFile" uid="uid://b5ovyff73ucvc" path="res://assets/Roboto/static/Roboto-Black.ttf" id="3_mqh5l"]
+
+[node name="death_screen" type="CanvasLayer"]
+script = ExtResource("1_uyutr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.80208886, 0.22164744, 0.28838265, 0.49803922)
+
+[node name="retry" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -29.0
+offset_right = 67.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "retry"
+
+[node name="quitToMenu" type="Button" parent="."]
+offset_left = 119.0
+offset_top = 441.0
+offset_right = 247.0
+offset_bottom = 504.0
+text = "quit to menu"
+
+[node name="quitGame" type="Button" parent="."]
+offset_left = 119.0
+offset_top = 511.0
+offset_right = 247.0
+offset_bottom = 575.0
+text = "quit game"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 161.0
+offset_right = 264.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("2_dwo6e")
+theme_override_font_sizes/font_size = 50
+text = "your score:"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 266.0
+offset_top = 161.0
+offset_right = 306.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("3_mqh5l")
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="quitToMenu" to="." method="_on_quit_to_menu_pressed"]
+[connection signal="pressed" from="quitGame" to="." method="_on_quit_game_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0xf8lmddgbgi"]
+
+[ext_resource type="Script" uid="uid://b4ko68vx3atlf" path="res://scripts/pipes.gd" id="1_3ahhd"]
+[ext_resource type="Texture2D" uid="uid://c53uc1j86d6ps" path="res://assets/pipe.png" id="1_f17p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f17p0"]
+size = Vector2(302, 8807.08)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ahhd"]
+size = Vector2(308, 9613.977)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prsvi"]
+size = Vector2(37.14287, 468.57156)
+
+[node name="pipes" type="Node2D"]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_3ahhd")
+
+[node name="top pipe image" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-0.00018980692, -2052.0344)
+rotation = 3.1415925
+scale = Vector2(0.4, 3.834368)
+texture = ExtResource("1_f17p0")
+
+[node name="bottom pipe image" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 2147.1968)
+scale = Vector2(0.4, 4.034737)
+texture = ExtResource("1_f17p0")
+
+[node name="top pipe" type="Area2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="top collision" type="CollisionShape2D" parent="top pipe"]
+position = Vector2(0, -2001.4412)
+scale = Vector2(0.40000004, 0.40000004)
+shape = SubResource("RectangleShape2D_f17p0")
+
+[node name="bottom pipe" type="Area2D" parent="."]
+
+[node name="bottom collision" type="CollisionShape2D" parent="bottom pipe"]
+position = Vector2(0, 2162.9194)
+scale = Vector2(0.39999986, 0.39999986)
+shape = SubResource("RectangleShape2D_3ahhd")
+
+[node name="middle" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="middle"]
+position = Vector2(44.28571, 0)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_prsvi")
+
+[connection signal="body_entered" from="top pipe" to="." method="_on_top_pipe_body_entered"]
+[connection signal="body_entered" from="bottom pipe" to="." method="_on_bottom_pipe_body_entered"]
+[connection signal="body_entered" from="middle" to="." method="_on_middle_body_entered"]

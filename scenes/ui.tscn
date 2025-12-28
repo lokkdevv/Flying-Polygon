@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm70j8ll10fyh"]
+
+[ext_resource type="Script" uid="uid://drytw21mwusof" path="res://scripts/ui.gd" id="1_x4jx1"]
+[ext_resource type="FontFile" uid="uid://bk04ui5hadanb" path="res://assets/Roboto/static/Roboto-Bold.ttf" id="2_yev5y"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_x4jx1")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 57.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_yev5y")
+theme_override_font_sizes/font_size = 65
+text = "0"
+autowrap_trim_flags = 0
